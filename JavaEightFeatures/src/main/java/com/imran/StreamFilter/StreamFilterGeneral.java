@@ -1,0 +1,48 @@
+package com.imran.StreamFilter;
+
+//Signature
+//The signature of Stream filter() method is given below:
+
+//Stream<T> filter(Predicate<? super T> predicate)  
+//Parameter
+//predicate: It takes Predicate reference as an argument. Predicate is a functional interface. So, you can also pass lambda expression here.
+
+//Return
+//It returns a new stream.
+
+import java.util.*; 
+
+class Product{  
+    int id;  
+    String name;  
+    float price;  
+    public Product(int id, String name, float price) {  
+        this.id = id;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
+
+
+public class StreamFilterGeneral {
+
+	public static void main(String[] args) {
+		
+		   List<Product> productsList = new ArrayList<Product>();  
+	        //Adding Products  
+	        productsList.add(new Product(1,"HP Laptop",25000f));  
+	        productsList.add(new Product(2,"Dell Laptop",30000f));  
+	        productsList.add(new Product(3,"Lenevo Laptop",28000f));  
+	        productsList.add(new Product(4,"Sony Laptop",28000f));  
+	        productsList.add(new Product(5,"Apple Laptop",90000f)); 
+	        
+	        productsList.stream()
+	                             .filter(p-> p.price>30000)
+	                             .map(p-> p.name)
+	                             .forEach(System.out::println);
+
+
+
+	}
+
+}
